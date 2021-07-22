@@ -1,92 +1,260 @@
-# Yoga Pose Detection
+# Yoga Pose Estimation App
 
-Yoga Pose Detection is a project aimed at analyzing the image inputted by user and classifying the pose out of one of the 10 yoga poses.
-
-# Motivation
-
-The motivation for this came project came from the quarantine and lockdowns. During these long months of lockdown it's difficult for people to go out to exercise, run and do things they can to stay fit. Yoga is something that can be done indoors easily and has a lot of benefits.
-But it can be tricky to get any yoga pose correct if a person doesn't do yoga regularly.
-With the help of yoga pose detection, people can not only classify the pose but also check how well is their posture as compared to a perfect yoga pose.
-
-# Dataset
- 
- The Dataset can be found under the data folder. There is a train set and a test set. The different yoga poses available in the data are:
- 
- ### Yoga Poses
-| Class | Label |
-| --- | --- |
-| 0 | bridge |
-| 1 | child |
-| 2 | downwardog |
-| 3 | mountain |
-| 4 | plank |
-| 5 | seatedforwardbend |
-| 6 | tree |
-| 7 | trainglepose |
-| 8 | warrior1 |
-| 9 | warrior2 |
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/its-not-a-lie-if-you-believe-it.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com)
 
 
-**The training data structure look like this** 
-
-<img src='images/train_dir.png'/>
-
-The reason behind choosing this dataset among others-
-- It has images categorized in one of the ten yoga poses
-- Is publicly available
-- The length of the dataset is suitble for our task with 
-
-<img src='images/bridge.png'/>
+<p align="center">
+  <a href="https://github.com/ShapeAI/Yoga-Pose-Estimation-App">
+    <img src="https://course.ece.cmu.edu/~ece500/projects/s19-teamb7/wp-content/uploads/sites/33/2019/01/Tree-Pose-Keypoints.jpg" alt="Logo">
+  </a>
+</p>
 
 
-# Features
-
-For now Yoga Pose Detector can accpet any image from the user and classify it into one of the 10 predefined yoga poses. The predicted label is a string telling the yoga pose the person is trying.
-
-
-## Used Libraries
-- [Keras](https://keras.io/)- This is the main library used in this project. The model is entirely build on Keras including all the image augmentation, transfer learning, training, testing.
-
-- [NumPy](http://numpy.org/docs)- Used for pixels manipulation
-
-- [Matplotlib](http://matplotlib.org/)- To plot images and loss plots.
-
-- [Flask](https://flask.palletsprojects.com/)- Used for deploying our classification model
+## Table of Content
+  * [Demo](#demo)
+  * [Overview](#overview)
+  * [Motivation](#motivation)
+  * [Technical Aspect](#technical-aspect)
+  * [Bug / Feature Request](#bug---feature-request)
+  * [Technologies Used](#technologies-used)
+  * [License](#license)
+  * [Contact](#contact-)
 
 
+## Overview:-
+
+This is a Yoga Pose Estimation App which can be able to detect the yoga pose in real time by using posenet and KNN Classifier. Here the dataset used is custom data set which consists of 3 videos for representing 3 different postures. It is deployed in heroku. One Thing to be noted i.e this will work correctly for all mobile and edge devices.
+
+## Motivation:-
+
+This project is done as a part of my internship in ShapeAI in the role of Machine Learning Engineer Intern. This project can be extended to a perfect Yoga Trainer to track the poses and retain fitness using AI.
 
 
-## Network Architecture
-The motivation of using transfer learning for out task came after we implemented a Deep Neural Network from Scratch. The model build from scratch gives accuracy only around 18%-20%. We can boost the accuracy with the help of transfer learning.
+## Technical Aspect:-
 
-Keras application module has variety of pretrained networks which can be easily downloaded.
+This Project is mainly divided into 2 parts i.e frontend,backend part. Let's discuss each one of them in detail.   
 
-In our project, we tried multiple networks before settling to MobileNet.
+1. Frontend Part:- It mainly involves in collecting the image of the posture from front cam which is used for pose identification. This image is passed to posenet model which is pretrained in ml5.js and get the countor part locations x and y and save them for getting the data in form of json. We will be getting 17 poses detected from the image which has 2 values associated with it which will be in total 34 cordinates. Now once the data is converted we need to make use of pandas to convert to data frame and we need to train it with the KNN classifier and pickle it. The coordinates fro output is sent as request to flask app from ajax request.For getting the front cam i used p5.js.
 
+2. Backend Part:- Now coming to backend part we used flask as a backend micro frame work to accept the request from front ed java script.Now we need to unpickle the model and predict with the request values which are in form of form values and predict the results and send the response to ajax there by we can get the pose identified.
 
-## Model
-The pretrained models are trained on the ImageNet Dataset classifying 1000 classes. Our task is to classify the yoga pose in one of the 10 classes, so we modified the classification layer and replaced it with our Dense layer.
-The final model is a combination of transfer learning and custom trained classifier.
-The training accuracy achieved is **81%** and validation accuracy acheived is **61%**.
+Currently is is trained to identify only 3 poses. This model is getting 90.33 % accuracy.
 
 
+## Bug / Feature Request
+If you find a bug (gave undesired results), kindly open an issue [here](https://github.com/ShapeAI/Yoga-Pose-Estimation-App/issues/new/choose) by including your search query and the expected result.
 
-## Performance
-The model is completely built on the public free available dataset in contrast to the commercial projects that use large datasets with high resolution quality. However, the model is capable of being trained on any dataset and predicting the accurate yoga postures. 
-Currently the accuracy is 61% which can be improved with diverse datasets.
-
-<img src='images/mountain_predict.png'/>
-
-
-# Future Work:
-
-1. **Adding real time prediction feature**, so that person can perform yoga infront of the webcam and yoga pose detector can classify the pose in real time
-2. **Adding scoring feature to tell how well your yoga posture is** Comparing the perfect pose with user's pose will help user to improve by correcting their posture.
-3. **Adding Style Transfer**. The person will be able to add stylish backgrounds to their image.
+If you'd like to request a new function, feel free to do so by opening an issue [here](https://github.com/ShapeAI/Yoga-Pose-Estimation-App/issues/new/). Please include sample queries and their corresponding results.
 
 
 
 ## License
-[**MIT License**](https://choosealicense.com/licenses/mit/)
 
-***Inspired by 2020 MLH Fellowship Mini Hackathon Contest***.
+
+                                       Apache License
+                                  Version 2.0, January 2004
+                                http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "[]"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
+
+   Copyright [2020] [Kota Sai Durga Kamesh]
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+
+## 📧Contact:-
+For any kind of suggesstions/ help in code Please mail me at ksdkamesh99@gmail.com.
