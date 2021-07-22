@@ -19,7 +19,7 @@
 
 ## Table of Content
   * [Demo](#demo)
-  * [Overview](#overview)
+  * [Overview](##overview)
   * [Motivation](#motivation)
   * [Technical Aspect](#technical-aspect)
   * [Bug / Feature Request](#bug---feature-request)
