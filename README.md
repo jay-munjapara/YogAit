@@ -37,7 +37,8 @@ This is a Yoga Pose Estimation App which can be able to detect the yoga pose in 
 This project is done as a part of my internship in ShapeAI in the role of Machine Learning Engineer Intern. This project can be extended to a perfect Yoga Trainer to track the poses and retain fitness using AI.
 
 
-### Yoga Poses
+## Yoga Poses
+
 | Class | Label |
 | --- | --- |
 | 0 | bridge |
@@ -51,7 +52,7 @@ This project is done as a part of my internship in ShapeAI in the role of Machin
 | 8 | warrior1 |
 | 9 | warrior2 |
 
-
+<!--
 *The training data structure look like this* 
 
 <img src='images/train_dir.png'/>
@@ -62,6 +63,7 @@ The reason behind choosing this dataset among others-
 - The length of the dataset is suitble for our task with 
 
 <img src='images/bridge.png'/>
+-->
 
 
 # Features
@@ -77,8 +79,6 @@ For now Yoga Pose Detector can accpet any image from the user and classify it in
 - [Matplotlib](http://matplotlib.org/)- To plot images and loss plots.
 
 - [Flask](https://flask.palletsprojects.com/)- Used for deploying our classification model
-
-
 
 
 ## Network Architecture
@@ -100,7 +100,7 @@ The training accuracy achieved is *81%* and validation accuracy acheived is *61%
 The model is completely built on the public free available dataset in contrast to the commercial projects that use large datasets with high resolution quality. However, the model is capable of being trained on any dataset and predicting the accurate yoga postures. 
 Currently the accuracy is 61% which can be improved with diverse datasets.
 
-<img src='images/mountain_predict.png'/>
+<!--img src='images/mountain_predict.png'/-->
 
 
 # Future Work:
@@ -114,4 +114,4 @@ Currently the accuracy is 61% which can be improved with diverse datasets.
 ## License
 [*MIT License*](https://choosealicense.com/licenses/mit/)
 
-**Inspired by 2020 MLH Fellowship Mini Hackathon Contest**.
+**Inspired by 2021 [AMU BATTLEGROUNDS](https://mlsa-amu.github.io/#/) Hackathon Contest**.
