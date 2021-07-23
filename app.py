@@ -245,5 +245,10 @@ def vajrasana_video():
 def bhadrasana_video():
     return Response(generate_frames(2), mimetype='multipart/x-mixed-replace; boundary=frame')
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static', 'images'),
+                               'favicon.ico', mimetype='image/png')
+
 if __name__ == "__main__":
     app.run()
