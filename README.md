@@ -68,17 +68,28 @@ The reason behind choosing this dataset among others-
 
 # Features
 
+Our project offers three main features which includes Learn, Practice and Meditate. Detailed overview is given below:
+
+-Learn- Learn a multitude of yoga asanas with proper instructions and illustrations on how to perform them correctly.
+-Practice- Practice your yoga poses by maximizing your score which will be provided on the basis of the correctness of the yoga pose.
+-Meditate-
+
 For now Yoga Pose Detector can accpet any image from the user and classify it into one of the 10 predefined yoga poses. The predicted label is a string telling the yoga pose the person is trying.
 
 
-## Used Libraries
-- [Keras](https://keras.io/)- This is the main library used in this project. The model is entirely build on Keras including all the image augmentation, transfer learning, training, testing.
+## Used Tools & Technologies
 
-- [NumPy](http://numpy.org/docs)- Used for pixels manipulation
+-[MediaPipe](https://google.github.io/mediapipe/solutions/pose_classification.html)- This is the main library used in this project. The Pose Classification model we are using is “*BlazePose*” which is the landmark model in MediaPipe Pose that predicts the location of 33 pose landmarks.
 
-- [Matplotlib](http://matplotlib.org/)- To plot images and loss plots.
+-[OpenCV](https://pypi.org/project/opencv-python/)- is a Python library that is used to solve computer vision problems. Computer vision includes understanding and analyzing digital images by the computer and processing the images or providing relevant data after analyzing the image. Used for getting the video feed in the project.
 
-- [Flask](https://flask.palletsprojects.com/)- Used for deploying our classification model
+-[NumPy](http://numpy.org/docs)- Used for angle calculation between three particular landmarks fetched from Pose Classification model.
+
+-[Time](https://docs.python.org/3/library/time.html)- module in Python provides various time-related functions. This module comes under Python’s standard utility modules. Used for adding timer in our project.
+
+-[Flask](https://flask.palletsprojects.com/)- It is the backend used in our Project.
+
+-[Heroku](https://devcenter.heroku.com/articles/getting-started-with-python)- Used for deploying our flask app via GitHub.
 
 
 ## Network Architecture
