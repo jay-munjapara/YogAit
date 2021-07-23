@@ -22,7 +22,7 @@ def calculate_angle(a,b,c):
         
     return angle
 
-def generate_frames():
+def generate_frames(num = 0):
     TIMER = int(20)
     prev = time.time()
     cap = cv2.VideoCapture(0)
@@ -36,63 +36,102 @@ def generate_frames():
 
             # Make detection
             results = pose.process(image)
+            image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
 
             # Recolor back to BGR
             image.flags.writeable = True
-            image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
-
-            # Extract landmarks
+            
             try:
                 landmarks = results.pose_landmarks.landmark
+                if num == 1:
+                    # Get coordinates - left
+                    shoulder = [landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x,landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].y]
+                    hip = [landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].x,landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].y]
+                    knee = [landmarks[mp_pose.PoseLandmark.LEFT_KNEE.value].x,landmarks[mp_pose.PoseLandmark.LEFT_KNEE.value].y]
 
-                # Get coordinates - left
-                shoulder = [landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x,landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].y]
-                hip = [landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].x,landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].y]
-                knee = [landmarks[mp_pose.PoseLandmark.LEFT_KNEE.value].x,landmarks[mp_pose.PoseLandmark.LEFT_KNEE.value].y]
+                    # Get coordinates - right
+                    shoulder1 = [landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].x,landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].y]
+                    hip1 = [landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].x,landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].y]
+                    knee1 = [landmarks[mp_pose.PoseLandmark.RIGHT_KNEE.value].x,landmarks[mp_pose.PoseLandmark.RIGHT_KNEE.value].y]
 
-                # Get coordinates - right
-                shoulder1 = [landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].x,landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].y]
-                hip1 = [landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].x,landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].y]
-                knee1 = [landmarks[mp_pose.PoseLandmark.RIGHT_KNEE.value].x,landmarks[mp_pose.PoseLandmark.RIGHT_KNEE.value].y]
+                    # Calculate angle
+                    angle = calculate_angle(shoulder, hip, knee)
+                    angle1 = calculate_angle(shoulder1, hip1, knee1)
+                    if angle and 110 <= angle <= 140 and TIMER > 0 :
+                        cv2.putText(image, "Yes", 
+                                    tuple(np.multiply([0.8,0.1], [640, 480]).astype(int)), 
+                                    cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,0,255), 2, cv2.LINE_AA
+                                        )
+                        # Update and keep track of Countdown
+                        # if time elapsed is one second
+                        # than decrease the counter
+                        if cur-prev >= 1:
+                            prev = cur
+                            TIMER = TIMER-1
 
-                # Calculate angle
-                angle = calculate_angle(shoulder, hip, knee)
-                angle1 = calculate_angle(shoulder1, hip1, knee1)
-                if angle <=160 and TIMER > 0 :
-                    cv2.putText(image, "Yes", 
-                                tuple(np.multiply([0.8,0.1], [640, 480]).astype(int)), 
-                                cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,0,255), 2, cv2.LINE_AA
-                                    )
-                    # Update and keep track of Countdown
-                    # if time elapsed is one second
-                    # than decrease the counter
-                    if cur-prev >= 1:
-                        prev = cur
-                        TIMER = TIMER-1
+                    elif TIMER <=0 :
+                        cv2.putText(image, "Done", 
+                                    tuple(np.multiply([0.8,0.1], [640, 480]).astype(int)), 
+                                    cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,255,0), 2, cv2.LINE_AA
+                                        )
 
-                elif TIMER <=0 :
-                    cv2.putText(image, "Done", 
-                                tuple(np.multiply([0.8,0.1], [640, 480]).astype(int)), 
-                                cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,255,0), 2, cv2.LINE_AA
-                                    )
+                    else:
+                        cv2.putText(image, "No", 
+                                    tuple(np.multiply([0.8,0.1], [640, 480]).astype(int)), 
+                                    cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,0,255), 2, cv2.LINE_AA
+                                        )
+                    # Visualize angle
+                    cv2.putText(image, str(angle), 
+                                    tuple(np.multiply(hip, [640, 480]).astype(int)), 
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 2, cv2.LINE_AA
+                                        )
+                    cv2.putText(image, str(angle1), 
+                                    tuple(np.multiply(hip1, [640, 480]).astype(int)), 
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,0,0), 2, cv2.LINE_AA
+                                        )
+                    
+                    # Extract landmarks
+                elif num == 2:
+                    # Get coordinates - left
+                    shoulder = [landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x,landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].y]
+                    hip = [landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].x,landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].y]
+                    knee = [landmarks[mp_pose.PoseLandmark.LEFT_KNEE.value].x,landmarks[mp_pose.PoseLandmark.LEFT_KNEE.value].y]
 
-                else:
-                    cv2.putText(image, "No", 
-                                tuple(np.multiply([0.8,0.1], [640, 480]).astype(int)), 
-                                cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,0,255), 2, cv2.LINE_AA
-                                    )
-                # Visualize angle
-                cv2.putText(image, str(angle), 
-                                tuple(np.multiply(hip, [640, 480]).astype(int)), 
-                                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 2, cv2.LINE_AA
-                                    )
-                cv2.putText(image, str(angle1), 
-                                tuple(np.multiply(hip1, [640, 480]).astype(int)), 
-                                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,0,0), 2, cv2.LINE_AA
-                                    )
+                    # Calculate angle
+                    angle = calculate_angle(shoulder, hip, knee)
+                    if angle and angle <= 160 and TIMER > 0 :
+                        cv2.putText(image, "Yes", 
+                                    tuple(np.multiply([0.8,0.1], [640, 480]).astype(int)), 
+                                    cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,0,255), 2, cv2.LINE_AA
+                                        )
+                        # Update and keep track of Countdown
+                        # if time elapsed is one second
+                        # than decrease the counter
+                        if cur-prev >= 1:
+                            prev = cur
+                            TIMER = TIMER-1
 
+                    elif TIMER <=0 :
+                        cv2.putText(image, "Done", 
+                                    tuple(np.multiply([0.8,0.1], [640, 480]).astype(int)), 
+                                    cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,255,0), 2, cv2.LINE_AA
+                                        )
 
-                
+                    else:
+                        cv2.putText(image, "No", 
+                                    tuple(np.multiply([0.8,0.1], [640, 480]).astype(int)), 
+                                    cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,0,255), 2, cv2.LINE_AA
+                                        )
+                    # Visualize angle
+                    cv2.putText(image, str(angle), 
+                                    tuple(np.multiply(hip, [640, 480]).astype(int)), 
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 2, cv2.LINE_AA
+                                        )
+                    cv2.putText(image, str(angle1), 
+                                    tuple(np.multiply(hip1, [640, 480]).astype(int)), 
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,0,0), 2, cv2.LINE_AA
+                                        )
+                    
             except:
                 pass
             # Display countdown on each frame
@@ -109,8 +148,8 @@ def generate_frames():
 
             # Render detections
             mp_drawing.draw_landmarks(image, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,
-                                    mp_drawing.DrawingSpec(color=(0,0,255), thickness=2, circle_radius=2), 
-                                    mp_drawing.DrawingSpec(color=(255,0,0), thickness=2, circle_radius=2) 
+                                    mp_drawing.DrawingSpec(color=(245,117,66), thickness=2, circle_radius=2), 
+                                    mp_drawing.DrawingSpec(color=(245,66,230), thickness=2, circle_radius=2) 
                                         )               
 
             ret, image_conv = cv2.imencode('.jpg', image)
@@ -153,9 +192,9 @@ def practice():
 def selection():
     return render_template('selection.html')
 
-@app.route('/balasana')
-def balasana():
-    return render_template('balasana.html')
+@app.route('/vajrasana')
+def vajrasana():
+    return render_template('vajrasana.html')
 
 @app.route('/bhadrasana')
 def bhadrasana():
@@ -192,10 +231,19 @@ def utkatasana():
 @app.route('/uttanasana')
 def uttanasana():
     return render_template('uttanasana.html')
+
 @app.route('/video')
 def video():
     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
+@app.route('/vajrasana_video')
+def vajrasana_video():
+    return Response(generate_frames(1), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/bhadrasana_video')
+def bhadrasana_video():
+    return Response(generate_frames(2), mimetype='multipart/x-mixed-replace; boundary=frame')
+
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run()

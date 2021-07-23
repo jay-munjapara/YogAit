@@ -8,7 +8,7 @@
     <script src="static/js/practice.js"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='img/')}}favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='img/')}}favicon-16x16.png">
-    <title>yogAit</title>
+    <title>yogAIt</title>
     <link rel="stylesheet" href="static/css/style.css">
     <meta charset="utf-8">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178448067-1"></script>
@@ -40,10 +40,13 @@
     </div>
     <h1 style="font-size: 100px; top:320px; left:1000px"><span id="time">00:30</span></h1>
     <h1 style="font-size: 40px; top:450px; left:960px">seconds left to hold</h1>
-    <div>
+    <!--<div>
         <a href="{{url_for('index')}}" style="width: 150px">
             <indexbutton style="font-size: 40px; top:740px">Back</indexbutton>
         </a>
+    </div> -->
+    <div class="buttons ">
+    <div><a href="{{url_for( 'index')}} " style="width: 150px "><indexbutton style="font-size: 40px; top:700px ">Back</indexbutton></a></div>
     </div>
 </body>
 <footer>&copy; Copyright & Stuff 2021. By Jay, Jenil & Yash. Made With ❤️.</footer>

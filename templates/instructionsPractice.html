@@ -8,6 +8,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='img/')}}favicon-16x16.png">
     <title>Instructions</title>
     <link rel="stylesheet" href="static/css/style.css">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178448067-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -53,12 +54,13 @@
 </div>
 
 <img src="{{url_for( 'static', filename='img/' )}}allow.png " style="position:absolute; top: 560px; left: 260px; height:90px "/>
+<img src="{{url_for( 'static', filename='img/' )}}mountain.svg " style="position:absolute; top: 387px; left: 760px; height:250px "/>
 <img src="{{url_for( 'static', filename='img/' )}}time.svg " style="position:absolute; top: 340px; left: 1290px; height:100px "/>
 
 <div class="buttons ">
-<div><a href="index.html " style="width: 150px "><indexbutton style="font-size: 40px; top:700px ">Back</indexbutton></a></div>
+<div><a href="{{url_for( 'index')}} " style="width: 150px "><indexbutton style="font-size: 40px; top:700px ">Back</indexbutton></a></div>
 <div></div>
-<div><a href="practice.html " style="width: 150px "><indexbutton style="font-size: 40px; left:1100px; top:700px; ">Start &#x279c;</indexbutton></a></div>
+<div><a href="{{url_for( 'selection')}} " style="width: 150px "><indexbutton style="font-size: 40px; left:1100px; top:700px; ">Start &#x279c;</indexbutton></a></div>
 <div></div>
 </div>
 

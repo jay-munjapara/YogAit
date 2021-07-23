@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>yogAit</title>
+    <title>yogAIt</title>
     <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='img/favicon-32x32.png')}}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='img/favicon-16x16.png')}}">
     <link rel="stylesheet" href="static/css/style.css">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178448067-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -21,7 +22,7 @@
 </head>
 
 <body>
-    <h1 style="width:1200px; margin-bottom: 10px; padding-left:20px; font-size:110px;"> Welcome to yogAit</h1>
+    <h1 style="width:1200px; margin-bottom: 10px; padding-left:20px; font-size:110px;"> Welcome to yogAIt</h1>
     <h2> your AI yoga companion</h2>
     <img src="{{url_for('static', filename='img/yoga 1.svg')}}" alt="" style="margin-left:600px; margin-top:30px; width: 694px; height: 700px;">
     <img src="{{url_for('static', filename='img/sparkles.svg')}}" style="position:absolute; top:120px; left:1130px; width:180px; height:167px">
@@ -37,7 +38,7 @@
     </div>
     <div>
         <a href="{{url_for('about')}}" style="width: 210px">
-            <indexbutton style="top:570px;">About yogAit</indexbutton>
+            <indexbutton style="top:570px;">About yogAIt</indexbutton>
         </a>
     </div>
 </body>

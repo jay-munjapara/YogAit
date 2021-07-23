@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yogAIt</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='img/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='img/favicon-16x16.png')}}">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178448067-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-178448067-1');
+    </script>
+</head>
+
+<body>
+    <h3 style="width:1200px; margin-bottom: 0px; margin-top: 5px; padding-left:0px; color: black;"> Select your ASANA </h3>
+    <div class="row" style="display: flex; margin: 25px;">
+    <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="{{url_for('static', filename='img/vajrasana.jpg')}}" style="width:300px;height:300px;">
+          </div>
+          <div class="flip-card-back">
+            <span style="font-size: 20px;">Benefits: This pose helps regulate blood circulation </span>
+            <div><a href="{{url_for('vajrasana')}}"><p style="margin-top: 0px;">start</p></a></div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="{{url_for('static', filename='img/bhadrasana.jpg')}}" style="width:300px;height:300px;">
+          </div>
+          <div class="flip-card-back">
+            <span style="font-size: 20px;">Benefits: Body alignment is improved thanks to this pose.
+
+            </br>How to do it: This pose has you sitting down with your legs apart and feet touching each other. 
+                Relax your head, neck and spine. Hold for as long as your comfortable.</span>
+            <div><a href="{{url_for('bhadrasana')}}"><p style="margin-top: 0px;">start</p></a></div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="{{url_for('static', filename='img/bhujangasana.jpg')}}" style="width:300px;height:300px;">
+          </div>
+          <div class="flip-card-back">
+            <span style="font-size: 20px;">Benefits: This pose is therapeutic for asthma, stretching, improves mensual irregularities.
+
+            </br>How to do it: Lay on your stomach with your forehead resting on floor.
+                Breath in and start to lift your head and chest off the floor. Keep your shoulders relaxed, exhale while lowering yourself back onto the ground.</span>
+            <div><a href="{{url_for('bhujangasana')}}"><p style="margin-top: 0px;">start</p></a></div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="{{url_for('static', filename='img/matsyasana.jpg')}}" style="width:300px;height:300px;">
+          </div>
+          <div class="flip-card-back">
+            <span style="font-size: 20px;">Benefits: This pose strengths muscles and improves posture.
+
+                How to do it: Lie on your back and bend your knees while resting your feet on the floor. Inhale while lifting your pelvis slightly off the floor and slide your hands, palms down, below your bottom. Hold for 15 to 30 seconds.</span>
+            <div><a href="{{url_for('matsyasana')}}"><p style="margin-top: 0px;">start</p></a></div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="{{url_for('static', filename='img/pashchimottanasana.jpg')}}" style="width:300px;height:300px;">
+          </div>
+          <div class="flip-card-back">
+            <span style="font-size: 20px;">Benefits: This pose helps with many issues which includes relieving the symptoms of menopause and menstrual discomfort.
+
+                How to do it: For this pose you’ll be sitting on the floor with legs extended out. Focus on leaning  towards your toes instead of towards your knees. Stay in the pose 1 to 3 minutes.</span>
+            <div><a href="{{url_for('pashchimottanasana')}}"><p style="margin-top: 0px;">start</p></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="display: flex;margin: 25px;">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="{{url_for('static', filename='img/pavanmuktasana.jpg')}}" style="width:300px;height:300px;">
+              </div>
+              <div class="flip-card-back">
+                <span style="font-size: 20px;">Benefits: This pose is used for eliminating trapped gas and improving your digestive system.
+
+                    How to do it:  You will hold your knees and then lower your right leg and straighten it while still holding on to your left leg. Hold pose for up to a minute.</span>
+                <div><a href="{{url_for('pavanmuktasana')}}"><p style="margin-top: 0px;">start</p></a></div>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="{{url_for('static', filename='img/shavasana.jpg')}}" style="width:300px;height:300px;">
+              </div>
+              <div class="flip-card-back">
+                <span style="font-size: 20px;">Benefits: This pose is an important one for reducing anxiety and promoting muscle relaxation.
+
+                    How to do it: For this pose you will lie down letting your muscles deeply relax and keep breathing into your abdomen. When you’re finished with the exercise get up very slowly.</span>
+                <div><a href="{{url_for('shavasana')}}"><p style="margin-top: 0px;">start</p></a></div>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="{{url_for('static', filename='img/trikonasana.jpg')}}" style="width:300px;height:300px;">
+              </div>
+              <div class="flip-card-back">
+                <span style="font-size: 20px;">Benefits: This pose stimulates function of abdominal organs along with reducing stress.
+
+                    How to do it: Stand with legs apart and extend your arms. When you have your arm extended to the right, drop your right arm so your right hand reaches the front of your right foot. Breath and hold for 5 to 6 breaths.</span>
+                <div><a href="{{url_for('trikonasana')}}"><p style="margin-top: 0px;">start</p></a></div>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="{{url_for('static', filename='img/utkatasana.jpg')}}" style="width:300px;height:300px;">
+              </div>
+              <div class="flip-card-back">
+                <span style="font-size: 20px;">Benefits: This one stimulates the heart, diaphragm, and abdominal organs.
+
+                    How to do it: This pose is basically a squat, keeping balance, deep breathing and holding. Hold for 30 seconds to a minute.</span>
+                <div><a href="{{url_for('utkatasana')}}"><p style="margin-top: 0px;">start</p></a></div>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="{{url_for('static', filename='img/uttanasana.jpg')}}" style="width:300px;height:300px;">
+              </div>
+              <div class="flip-card-back">
+                <span style="font-size: 20px;">Benefits: This pose helps strengthen your body and aids in digestion.
+
+                    How to do it: For this pose you stand straight up and fold forward, while keeping your spine extended. Go at this one slowly especially if your back isn’t used to bending.</span>
+                <div><a href="{{url_for('uttanasana')}}"><p style="margin-top: 0px;">start</p></a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="buttons ">
+            <div><a href="{{url_for( 'instructionsPractice')}} " style="width: 150px "><indexbutton style="font-size: 40px; top:735px ">Back</indexbutton></a></div>
+            </div>
+    
+</body>
+<footer>&copy; Copyright & Stuff 2021. By Jay, Jenil & Yash. Made With ❤️.</footer>
+
+</html>

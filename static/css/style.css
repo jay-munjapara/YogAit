@@ -4,7 +4,7 @@ canvas {
 
 html,
 body {
-    margin: 25px;
+    margin-left: 25px;
     /*background-color: #ce3635;*/
     background-color: #00adef;
     font-family: Helvetica, sans-serif, sans-serif;
@@ -158,3 +158,46 @@ indexbutton:hover {
   75%  {bottom: -100px;}
   100% {bottom: -220px;}
 }*/
+
+/* ******************************CARDS**************** */
+
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+    margin: 0px 10px;
+  }
+  
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  }
+  
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .flip-card-front {
+    background-color: #bbb;
+    color: black;
+  }
+  
+  .flip-card-back {
+    /* background-color: #2980b9; */
+    color: white;
+    transform: rotateY(180deg);
+  }

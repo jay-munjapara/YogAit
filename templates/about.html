@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='img/')}}favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='img/')}}favicon-16x16.png">
-    <title>About yogAit</title>
+    <title>About yogAIt</title>
     <link rel="stylesheet" href="static/css/style.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178448067-1"></script>
     <script>
@@ -22,23 +22,26 @@
 
 <body>
     <img src="{{url_for('static', filename='img/')}}blob3.svg" style="position:absolute; width: 600px; height: 600px; left: -210px; top: -300px;">
-    <h1 style="font-size: 100px; top:-30px">About yogAit</h1>
-    <p style="position:absolute; font-size: 23px; width:1320px; top:280px; left:70px;">Hey there! Welcome to yogAit, developed in 2021 by Jay, Jenil & Yash. <br><br>I created yogAit inspired by various Machine Learning models for visual recognition I experimented with during my internship. This is my first Machine Learning model and
-        my first attempt at Web Development. I have loved (almost) every second of this project and I have learnt more than I could have imagined. <br>yogAit uses <a href="https://www.tensorflow.org/lite/models/pose_estimation/overview" target="_blank">Pose.Net</a>,
+    <h1 style="font-size: 100px; top:-30px">About yogAIt</h1>
+    <p style="position:absolute; font-size: 23px; width:1320px; top:280px; left:70px;">Hey there! Welcome to yogAIt, developed in 2021 by Jay, Jenil & Yash. <br><br>I created yogAIt inspired by various Machine Learning models for visual recognition I experimented with during my internship. This is my first Machine Learning model and
+        my first attempt at Web Development. I have loved (almost) every second of this project and I have learnt more than I could have imagined. <br>yogAIt uses <a href="https://www.tensorflow.org/lite/models/pose_estimation/overview" target="_blank">Pose.Net</a>,
         developed by Google’s TensorFlow, and <a href="https://ml5js.org/" target="_blank">ml5.js</a>, a JavaScript library for Machine Learning on the browser. Most of my learning was following <a href="https://www.youtube.com/playlist?list=PLRqwX-V7Uu6YPSwT06y_AEYTqIwbeam3y"
             target="_blank">The Coding Train’s</a> YouTube playlist on Pose Estimation. <br><br> I'd like to thank <a href=" http://www.tomasmaillo.com/" target="_blank">my brother</a>, my parents, Dan, and the incredible team I have had the pleasure of working
         with this past year. Thank you for the constant support & encouragement. <br><br>If you have enjoyed this project please consider donating to <a href="https://girlswhocode.com/" target="_blank">GirlsWhoCode</a>, to support girls following computer
         science careers in the future!</p>
-    <a href="https://github.com/cris-maillo/yogAit" target="_blank"><img style="width:45px; height:45px; left:1250px; top:212px; position: absolute; z-index:1;" src="{{url_for('static', filename='img/')}}logo.svg" alt="logo" /></a>
+    <a href="https://github.com/cris-maillo/yogAIt" target="_blank"><img style="width:45px; height:45px; left:1250px; top:212px; position: absolute; z-index:1;" src="{{url_for('static', filename='img/')}}logo.svg" alt="logo" /></a>
     <div>
-        <a href="https://github.com/cris-maillo/yogAit" target="_blank" style="width: 150px">
+        <a href="https://github.com/cris-maillo/yogAIt" target="_blank" style="width: 150px">
             <indexbutton style="top: 200px; left:1240px; padding-left: 65px; height: 65px; padding-top: 3px; padding-bottom: 3px; font-size:35px">GitHub</indexbutton>
         </a>
     </div>
-    <div>
+    <!--<div>
         <a href="index.html" style="width: 150px">
             <indexbutton style="font-size: 40px; top:730px; left:70px">Back</indexbutton>
         </a>
+    </div> -->
+    <div class="buttons ">
+    <div><a href="{{url_for( 'index')}} " style="width: 150px "><indexbutton style="font-size: 40px; top:700px ">Back</indexbutton></a></div>
     </div>
 
 </body>
