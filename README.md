@@ -16,29 +16,28 @@
   </a>
 </p>
 
-# Idea: A brief summary of the problem you're attempting to solve, your solution, and why it's unique.
+# Idea:
 
 Because of the ongoing pandemic situation and a high alert of third wave individuals would confront lock down once more. Such countless individuals who are going for disconnected yoga classes or individuals who need to do yoga yet can’t manage the cost of the yoga classes, our application is assembled consummately for this sort of crowd.
 Our application tackles every one of the essential requirements of the above issue proclamation. Also it not only displays the yoga pose but also confirms whether we are performing the posture effectively, essentially like a fitness coach.
 There are numerous yoga and exercise applications that work till now however very few of them group the ability to instruct simultaneously.
 
-# Features: Describe the features that your project offers in detail.
+# Features:
 
 Our project offers three main features which includes Learn, Practice and Meditate. Detailed overview is given below:
 
-# Learn- Learn a multitude of yoga asanas with proper instructions and illustrations on how to perform them correctly.
+-Learn- Learn a multitude of yoga asanas with proper instructions and illustrations on how to perform them correctly.
+-Practice- Practice your yoga poses by maximizing your score which will be provided on the basis of the correctness of the yoga pose.
+-Meditate- Practice mindfulness and achieve a mentally clear and emotionally calm and stable state.
 
-Practice- Practice your yoga poses by maximizing your score which will be provided on the basis of the correctness of the yoga pose.
-Meditate- Practice mindfulness and achieve a mentally clear and emotionally calm and stable state.
-
-# Feasibility: What is the likelihood of your project being implemented in the real world?
+# Feasibility: 
 
 Yoga brings together physical and mental disciplines to achieve a peaceful body and mind which everyone is on a quest to find.
 This upholds the likelihood of the project being implemented and brought to life  in the real world.
 A very major component for the project is a CNN based “BlazePose” model. This is very lightweight hence easy to work and integrate with.
 
 
-# Tech Stack: Tools & Technologies used in the project.
+# Tech Stack: 
 
 -MediaPipe- This is the main library used in this project. The Pose Classification model we are using is “BlazePose” which is the landmark model in MediaPipe Pose that predicts the location of 33 pose landmarks.
 
