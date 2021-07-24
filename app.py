@@ -23,7 +23,7 @@ def calculate_angle(a,b,c):
     return angle
 
 def generate_frames(num = 0):
-    TIMER = int(20)
+    TIMER = int(10)
     prev = time.time()
     cap = cv2.VideoCapture(0)
     # Setup mediapipe instance
@@ -81,14 +81,14 @@ def generate_frames(num = 0):
                                     cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,0,255), 2, cv2.LINE_AA
                                         )
                     # Visualize angle
-                    cv2.putText(image, str(angle), 
-                                    tuple(np.multiply(hip, [640, 480]).astype(int)), 
-                                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 2, cv2.LINE_AA
-                                        )
-                    cv2.putText(image, str(angle1), 
-                                    tuple(np.multiply(hip1, [640, 480]).astype(int)), 
-                                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,0,0), 2, cv2.LINE_AA
-                                        )
+                    # cv2.putText(image, str(angle), 
+                    #                 tuple(np.multiply(hip, [640, 480]).astype(int)), 
+                    #                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 2, cv2.LINE_AA
+                    #                     )
+                    # cv2.putText(image, str(angle1), 
+                    #                 tuple(np.multiply(hip1, [640, 480]).astype(int)), 
+                    #                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,0,0), 2, cv2.LINE_AA
+                    #                     )
                     
                     # Extract landmarks
                 elif num == 2:
@@ -123,14 +123,14 @@ def generate_frames(num = 0):
                                     cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,0,255), 2, cv2.LINE_AA
                                         )
                     # Visualize angle
-                    cv2.putText(image, str(angle), 
-                                    tuple(np.multiply(hip, [640, 480]).astype(int)), 
-                                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 2, cv2.LINE_AA
-                                        )
-                    cv2.putText(image, str(angle1), 
-                                    tuple(np.multiply(hip1, [640, 480]).astype(int)), 
-                                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,0,0), 2, cv2.LINE_AA
-                                        )
+                    # cv2.putText(image, str(angle), 
+                    #                 tuple(np.multiply(hip, [640, 480]).astype(int)), 
+                    #                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 2, cv2.LINE_AA
+                    #                     )
+                    # cv2.putText(image, str(angle1), 
+                    #                 tuple(np.multiply(hip1, [640, 480]).astype(int)), 
+                    #                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,0,0), 2, cv2.LINE_AA
+                    #                     )
                     
             except:
                 pass
@@ -245,10 +245,5 @@ def vajrasana_video():
 def bhadrasana_video():
     return Response(generate_frames(2), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static', 'images'),
-                               'favicon.ico', mimetype='image/png')
-
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
