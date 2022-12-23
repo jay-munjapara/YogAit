@@ -26,30 +26,31 @@ There are numerous yoga and exercise applications that work till now however ver
 
 Our project offers three main features which includes Learn, Practice and Meditate. Detailed overview is given below:
 
--Learn- Learn a multitude of yoga asanas with proper instructions and illustrations on how to perform them correctly.
--Practice- Practice your yoga poses by maximizing your score which will be provided on the basis of the correctness of the yoga pose.
--Meditate- Practice mindfulness and achieve a mentally clear and emotionally calm and stable state.
+- Learn- Learn a multitude of yoga asanas with proper instructions and illustrations on how to perform them correctly.
+- Practice- Practice your yoga poses by maximizing your score which will be provided on the basis of the correctness of the yoga pose.
+- Meditate- Practice mindfulness and achieve a mentally clear and emotionally calm and stable state.
 
 # Feasibility: 
 
-Yoga brings together physical and mental disciplines to achieve a peaceful body and mind which everyone is on a quest to find.
-This upholds the likelihood of the project being implemented and brought to life  in the real world.
-A very major component for the project is a CNN based “BlazePose” model. This is very lightweight hence easy to work and integrate with.
+- Yoga brings together physical and mental disciplines to achieve a peaceful body and mind which everyone is on a quest to find.
+- This upholds the likelihood of the project being implemented and brought to life  in the real world.
+- A very major component for the project is a CNN based “BlazePose” model. This is very lightweight hence easy to work and integrate with.
 
 
 # Tech Stack: 
 
--MediaPipe- This is the main library used in this project. The Pose Classification model we are using is “BlazePose” which is the landmark model in MediaPipe Pose that predicts the location of 33 pose landmarks.
+- MediaPipe- This is the main library used in this project. The Pose Classification model we are using is “BlazePose” which is the landmark model in MediaPipe Pose that predicts the location of 33 pose landmarks.
 
--OpenCV- is a Python library that is used to solve computer vision problems. Computer vision includes understanding and analyzing digital images by the computer and processing the images or providing relevant data after analyzing the image. Used for getting the video feed in the project.
+- OpenCV- is a Python library that is used to solve computer vision problems. Computer vision includes understanding and analyzing digital images by the computer and processing the images or providing relevant data after analyzing the image. Used for getting the video feed in the project.
 
--NumPy- Used for angle calculation between three particular landmarks fetched from Pose Classification model.
+- NumPy- Used for angle calculation between three particular landmarks fetched from Pose Classification model.
 
--Time- It’s a module in Python that provides various time-related functions. This module comes under Python’s standard utility modules. Used for adding timers in our project.
+- Time- It’s a module in Python that provides various time-related functions. This module comes under Python’s standard utility modules. Used for adding timers in our project.
 
--Flask- Flask is a micro web framework written in Python. It is the backend used in our Project.
+- Flask- Flask is a micro web framework written in Python. It is the backend used in our Project.
 
--Heroku- Used for deploying our flask app via GitHub.
+- Heroku- Used for deploying our flask app via GitHub.
 
+# 
 
 **Inspired by 2021 [AMU BATTLEGROUNDS](https://mlsa-amu.github.io/#/) Hackathon Contest**.
